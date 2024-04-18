@@ -1,0 +1,49 @@
+.punteado {
+			border-style: dotted;
+			border-width: 1px;
+			border-color: 660033;
+			font-size: 9pt;
+		}
+
+		.hoja {
+			page-break-before: always;
+            font-size: 11px;
+			font-style: normal;
+			font-family: "Times New Roman",
+		}
+
+	
+
+		.gris {
+			color: #CDCDCDed;
+		}
+
+		.negrita{
+			font-weight: 500;
+		}
+
+		div {
+			line-height: 1.5;
+		}
+		@media print {
+
+			.hoja {
+				page-break-after: always;
+			}
+
+			footer {
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				text-align: center;
+				padding: 10px;
+				background-color: #f1f1f1;
+			}
+
+			.salto-pagina-condicional {
+				page-break-inside: always;
+			}
+			.contenido-principal {
+                page-break-inside: avoid; /* Evitar que el contenido se divida entre páginas */
+            }
+		}

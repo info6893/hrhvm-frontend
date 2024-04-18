@@ -1,0 +1,51 @@
+<app-card titulo="Resultados Anatomia Patologica">
+    <form [formGroup]="form" class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field appearance="outline">
+                    <mat-label>DNI</mat-label>
+                    <input matInput #input placeholder="Ingrese DNI" formControlName="dni" maxlength="8" minlength="8">
+                    <mat-hint align="end">{{input.value.length}}/8</mat-hint>
+                    <mat-icon matSuffix>contact_mail</mat-icon>
+                    <mat-error *ngIf="form.invalid">{{obtenerErrorCampoNombre('dni')}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field appearance="outline">
+                    <mat-label>Fecha Nacimiento:</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="fechanac">
+                    <mat-hint>DD/MM/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker startView="multi-year"></mat-datepicker>
+                    <mat-error *ngIf="form.invalid">{{obtenerErrorCampoNombre('fechanac')}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <button mat-raised-button color="primary" (click)="enviarData()">
+                    Buscar
+                </button>
+            </div>
+        </div>
+    </form>
+</app-card>
+
+
+<table class="tablenew m-4" *ngIf="this.datageneral.length">
+    <thead>
+        <tr>
+            <th>Cuenta Atención</th>
+            <th>Nombre Examen</th>
+            <th>Fecha ingreso</th>
+            <th>Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tbody>
+            <tr *ngFor="let item of datageneral">
+                <td>{{item.IdAtencion}}</td>
+                <td>{{item.NombreExamen}}</td>
+                <td>{{item.fechaconsultorio}}</td>
+                <td><button mat-raised-button color="primary" [routerLink]="['/patologiaresultados', item.IdMovimiento]">Ver</button></td>
+            </tr>
+        </tbody>
+</table>

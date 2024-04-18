@@ -1,0 +1,304 @@
+<div *ngFor="let item of dataResultados" >
+    <!--otros examenes-->
+    <div class="hoja"  *ngIf="item.NombreExamen!=='CITOLOGÍA ESPECIAL' ; else elseBlock">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3"><img class="animation__shake" src="../../../../assets/hrhvm.png"
+                        alt="AdminLTELogo" height="90" width="90"> </div>
+                <div class="col-sm-6 d-flex align-items-end" >
+                   <span class="text-center negrita " style="width: 100%;">
+                    HOSPITAL REGIONAL HERMILIO VALDIZÁN - HUÁNUCO
+                    <h4 class="negrita text-center">
+                        ANATOMIA PATOLOGICA
+                    </h4>
+                   </span> 
+                    
+                </div>
+                
+            </div>
+            <div class="row mt-4">
+                <div class="col-sm-5 negrita d-flex align-items-end">APELLIDOS Y NOMBRES </div>
+                <div class="col-sm-5 text-start negrita d-flex align-items-end">: {{item.NomPaciente | uppercase}} </div>
+                <div class="col-sm-2 ">
+                    <span class="negrita h6 "
+                        style="float: right; border:1px solid black;padding: 2px; border-radius: 5px;">
+                        {{objetoResultados.identificador}}
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 negrita">EDAD </div>
+                <div class="col-sm-7 text-start">: {{item.edad}} años</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 negrita">DNI </div>
+                <div class="col-sm-7 text-start">: {{item.NroDocumento}}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 negrita">HC </div>
+                <div class="col-sm-7 text-start">: {{item.NroHistoriaClinica}}</div>
+            </div>
+            <div class="row ">
+                <div class="col-sm-5 negrita">IAFA </div>
+                <div class="col-sm-7 text-start">: {{item.iafa}}</div>
+            </div>
+            <div class="row ">
+                <div class="col-sm-5 negrita">MEDICO QUE SOLICITA </div>
+                <div class="col-sm-7 text-start">: {{item.OrdenaPrueba | uppercase}}</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-5 negrita">PROCEDENCIA/SERVICIO</div>
+                <div class="col-sm-7 text-start">: {{item.nombreServicio | uppercase}}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <label class="negrita" style="font-size: 15px;">RESULTADO</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 punteado"></div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-12 text-center negrita mb-1">
+                    {{item.NombreExamen}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 negrita">FECHA DE RECEPCION DE MUESTRA</div>
+                <div class="col-sm-7">: {{objetoResultados.fechaRecepcion}}</div>
+            </div>
+
+
+            <div class="row" >
+                <div class="col-sm-5">
+                    <label class="negrita"> MUESTRA O ESPECIMEN DE ESTUDIO </label>
+                </div>
+                <div class="col-sm-7">: {{objetoResultados.muestra}} </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <label class="negrita"> FECHA/HORA RESULTADO </label>
+                </div>
+                <div class="col-sm-7">: {{objetoResultados.fechadetalles}} </div>
+            </div>
+            <div class="row mt-1 ">
+                <div class="col-sm-12 negrita">
+                    MACROSCOPIA:
+                </div>
+                <div class="col-sm-12">
+                    <label style="text-align: justify;" [style.white-space]="'pre-line'">
+                        {{objetoResultados.macroscopia}}
+                    </label>
+                </div>
+            </div>
+
+            <div class="row mt-1">
+                <div class="col-sm-12 negrita">
+                    MICROSCOPIA:
+                </div>
+                <div class="col-sm-12">
+                    <label style="text-align: justify;" [style.white-space]="'pre-line'">
+                        {{objetoResultados.microscopia}}
+                    </label>
+                </div>
+            </div>
+
+            <div class="row mt-1" *ngIf="item.NombreExamen!=='BLOCK CELL( BLOQUE CELULAR)'">
+                <div class="col-sm-12 negrita">
+                    DIAGNOSTICO:
+                </div>
+                <div class="col-sm-12">
+                    <label style="text-align: justify;" [style.white-space]="'pre-line'">
+                        {{objetoResultados.diagnostico}}
+                    </label>
+                </div>
+            </div>
+
+            <div class="row mt-1" *ngIf="item.NombreExamen!=='BLOCK CELL( BLOQUE CELULAR)'">
+                <div class="col-sm-12 negrita">
+                    OBSERVACIONES:
+                </div>
+                <div class="col-sm-12">
+                    <label style="text-align: justify;" [style.white-space]="'pre-line'">
+                        {{objetoResultados.observaciones}}
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 text-center mt-4 ">
+                    <small>
+                        <span class="negrita">MEDICO RESPONSABLE DE ESTUDIO:</span>
+                        {{item.NomEmpleado | uppercase }} ({{item.rne}}-{{ item.Descripcion | uppercase }})
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 punteado "></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center mt-2">
+                    Atentamente,
+                </div>
+            </div>
+
+
+            <footer>
+
+                <div class="row gris">
+                    <div class="col-sm-6">
+                        <span style="float:left">Jr. Hermilio Valdizán N° 950</span>
+                    </div>
+                    <div class="col-sm-6">
+                        <span style="float:right;margin-right: 1px;">Central Telefónica (062) 51-2400 &nbsp;</span>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+    <!-- fin otros examenes-->
+    <!--citologia especial-->
+    <ng-template #elseBlock>
+    
+    <div class="hoja">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3"><img class="animation__shake" src="../../../../assets/hrhvm.png"
+                        alt="AdminLTELogo" height="100" width="100"> </div>
+                <div class="col-sm-6 d-flex align-items-end" >
+                   <span class="text-center negrita " style="width: 100%;">
+                    HOSPITAL REGIONAL HERMILIO VALDIZÁN - HUÁNUCO
+                    <h4 class="negrita text-center">
+                        ANATOMIA PATOLOGICA
+                    </h4>
+                   </span> 
+                    
+                </div>
+                
+            </div>
+            <div class="row mt-4">
+                <div class="col-sm-5 negrita d-flex align-items-end">APELLIDOS Y NOMBRES </div>
+                <div class="col-sm-5 text-start negrita d-flex align-items-end">: {{item.NomPaciente | uppercase}} </div>
+                <div class="col-sm-2 ">
+                    <span class="negrita h6 "
+                        style="float: right; border:1px solid black;padding: 2px; border-radius: 5px;">
+                        {{objetoResultados.muestra}}
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 negrita">EDAD </div>
+                <div class="col-sm-7 text-start">: {{item.edad}} años</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 negrita">DNI </div>
+                <div class="col-sm-7 text-start">: {{item.NroDocumento}}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 negrita">HC </div>
+                <div class="col-sm-7 text-start">: {{item.NroHistoriaClinica}}</div>
+            </div>
+            <div class="row ">
+                <div class="col-sm-5 negrita">IAFA </div>
+                <div class="col-sm-7 text-start">: {{item.iafa}}</div>
+            </div>
+            <div class="row ">
+                <div class="col-sm-5 negrita">MEDICO QUE SOLICITA </div>
+                <div class="col-sm-7 text-start">: {{item.OrdenaPrueba | uppercase}}</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-sm-5 negrita">PROCEDENCIA/SERVICIO</div>
+                <div class="col-sm-7 text-start">: {{item.nombreServicio | uppercase}}</div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center ">
+                    <h4 class="negrita">RESULTADO</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 punteado"></div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-12 text-center negrita mb-1">
+                    {{item.NombreExamen}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5 negrita">FECHA DE RECEPCION DE MUESTRA</div>
+                <div class="col-sm-7">: {{objetoResultados.fechaRecepcion}}</div>
+            </div>
+
+
+     
+
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <label class="negrita"> FECHA/HORA RESULTADO </label>
+                </div>
+                <div class="col-sm-7">: {{objetoResultados.macroscopia}} </div>
+            </div>
+            <div class="row mt-1 ">
+                <div class="col-sm-12 negrita">
+                    MACROSCOPIA:
+                </div>
+                <div class="col-sm-12">
+                    <label style="text-align: justify;" [style.white-space]="'pre-line'">
+                        {{objetoResultados.diagnostico}}
+                    </label>
+                </div>
+            </div>
+
+
+
+            <div class="row mt-1 ">
+                <div class="col-sm-12 negrita">
+                    DIAGNOSTICO:
+                </div>
+                <div class="col-sm-12">
+                    <label style="text-align: justify;" [style.white-space]="'pre-line'">
+                        {{objetoResultados.observaciones}}
+                    </label>
+                </div>
+            </div>
+
+      
+
+            <div class="row">
+                <div class="col-sm-12 text-center mt-4 ">
+                    <small>
+                        <span class="negrita">MEDICO RESPONSABLE DE ESTUDIO:</span>
+                        {{item.NomEmpleado | uppercase }} ({{item.rne}}-{{ item.Descripcion | uppercase }})
+                    </small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 punteado "></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-center mt-2">
+                    Atentamente,
+                </div>
+            </div>
+
+
+            <footer>
+
+                <div class="row gris">
+                    <div class="col-sm-6">
+                        <span style="float:left">Jr. Hermilio Valdizán N° 950</span>
+                    </div>
+                    <div class="col-sm-6">
+                        <span style="float:right;margin-right: 1px;">Central Telefónica (062) 51-2400 &nbsp;</span>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+    </ng-template>
+</div>
+    <!-- fin citologia especial-->
