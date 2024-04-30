@@ -33,7 +33,7 @@ export class ResultadosComponent implements OnInit {
       this.dataResultados=data      
      // let partes = this.dataResultados.resultadoAnalisis.split("\\"); 
       if (this.dataResultados[0].resultadoAnalisis){
-       
+       console.log("entro")
         let partes =this.dataResultados[0].resultadoAnalisis.split("\\")
         this.objetoResultados = {
           fechaRecepcion: partes[0],
@@ -49,24 +49,14 @@ export class ResultadosComponent implements OnInit {
         console.log(this.objetoResultados)
       }
 
-    })
+    }) 
+  }
+
+  esCitologiaEspecial(item: any): boolean {
+    return item.NombreExamen === 'CITOLOGÍA ESPECIAL';
+  }
   
-
-   /*  
-
-   let fecha = partes[0];
-let identificacion = partes[1];
-let descripcion = partes[2];
-let fechaInforme = partes[3];
-let informe = partes[4];
-let conclusion = partes[5];
-let observaciones = partes[6];
-console.log("Fecha:", fecha);
-console.log("Identificación:", identificacion);
-console.log("Descripción:", descripcion);
-console.log("Fecha del Informe:", fechaInforme);
-console.log("Informe:", informe);
-console.log("Conclusión:", conclusion);
-console.log("Observaciones:", observaciones);*/
+  esBaf(item: any): boolean {
+    return item.NombreExamen === 'ESTUDIO CITO HISTOLÓGICO INMEDIATO DE ASPIRADO DE AGUJA FINA(BAAF), PARA DETERMINAR ADECUACIÓN DE LAS MUESTRAS PARA REALIZAR DIAGNÓSTICO';
   }
 }

@@ -21,7 +21,8 @@
                 </mat-form-field>
             </div>
             <div class="col-md-4">
-                <button mat-raised-button color="primary" (click)="enviarData()">
+                <button mat-raised-button color="primary" (click)="enviarData()" class="mb-3">
+                    <mat-icon>search</mat-icon>
                     Buscar
                 </button>
             </div>
@@ -35,7 +36,7 @@
         <tr>
             <th>Cuenta Atención</th>
             <th>Nombre Examen</th>
-            <th>Fecha ingreso</th>
+            <th>Fecha Recepcion Muestra</th>
             <th>Accion</th>
         </tr>
     </thead>
@@ -45,7 +46,7 @@
                 <td>{{item.IdAtencion}}</td>
                 <td>{{item.NombreExamen}}</td>
                 <td>{{item.fechaconsultorio}}</td>
-                <td><button mat-raised-button color="primary" [routerLink]="['/patologiaresultados', item.IdMovimiento]">Ver</button></td>
+                <td><a target="_blank" mat-raised-button color="primary" [routerLink]="['/patologiaresultados', item.IdMovimiento]">Ver</a></td>
             </tr>
         </tbody>
 </table>

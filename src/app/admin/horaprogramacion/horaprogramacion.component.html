@@ -1,0 +1,38 @@
+<app-card titulo="Hora Programacion">
+    <form [formGroup]="form" (ngSubmit)="Modificar()">
+        <div class="row">
+
+            <div class="col-sm-12 col-md-6">
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Ingrese Numero de Cuenta</mat-label>
+                    <input matInput placeholder="Registre numero de cuenta" formControlName="idcuenta">
+                </mat-form-field>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Establecimientos</mat-label>
+                    <input matInput placeholder="Registre numero de cuenta" formControlName="idconsultorio">
+                </mat-form-field>
+            </div>
+            <div class="col-sm-12 mb-3">
+                <button mat-raised-button color="primary" [disabled]="!form.valid" input="submit" extended
+                    style="width: 100%;">
+                    <mat-icon>search</mat-icon>
+                    Buscar
+                </button>
+            </div>
+            <ng-select [(ngModel)]="selectedCar">
+                <ng-option *ngFor="let car of cars" [value]="car.id">{{car.name}}</ng-option>
+             </ng-select>
+             
+             <!--Using items input-->
+             <ng-select [items]="cars" 
+                        bindLabel="name" 
+                        bindValue="id" 
+                        [(ngModel)]="selectedCar">
+             </ng-select>
+        </div>
+    </form>
+</app-card>
+

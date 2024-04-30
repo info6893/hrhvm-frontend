@@ -1,0 +1,56 @@
+
+.tablenew {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+  }
+  
+  /* Estilo para las filas impares */
+
+  /* Estilo para las celdas */
+  .tablenew td, .tablenew th {
+    padding: 0.75rem;
+    border-top: 1px solid #dee2e6;
+    border: 1px solid #dee2e6;
+  }
+  
+  /* Estilo para las celdas de encabezado */
+  .tablenew th {
+    font-weight: bold;
+    background-color: #e9ecef;
+    border-bottom: 2px solid #dee2e6;
+  }
+  
+  /* Estilo para las celdas de encabezado de columna */
+  .tablenew th {
+    text-align: left;
+  }
+  
+  /* Estilo para las celdas de encabezado de fila */
+  .tablenew th,
+  .tablenew td {
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  
+  .tablenew .action-cell {
+    width: 1%;
+    white-space: nowrap;
+  }
+
+  
+
+  .icon-container {
+    display: flex;
+    justify-content:  center;  
+    width: 110px;
+    text-align: center;  
+  }
+  
+  .success {
+    font-weight: bolder;
+    background-color: #D4EDDA;
+    color:#155724;
+    border-radius: 25px;
+    opacity: 0.7;
+  }

@@ -1,0 +1,16 @@
+<div class="container-fluid mt-3" >
+    
+
+    <div class="row">
+        <div class="col-sm-3" *ngFor="let item of nombreServiciosDisponibles">
+            <button mat-raised-button style="width: 100%;margin:2px" color="primary" (click)="verProgramacion(item)">{{item.Nombre_Servicios}}</button>
+           <!-- <mat-checkbox class="example-margin"  [(ngModel)]="item.seleccionado"  (change)="enviarServicio(item)">  {{item.Nombre_Servicios}}</mat-checkbox>                    -->
+         </div>
+    </div>
+
+    <mat-progress-bar mode="indeterminate" *ngIf="ver"></mat-progress-bar>
+
+    <full-calendar [options]="calendarOptions" [events]="eventsDatafile"></full-calendar>
+
+ 
+</div>

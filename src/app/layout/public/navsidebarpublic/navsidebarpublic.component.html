@@ -1,0 +1,28 @@
+
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <img src="../../../assets/logominsahrhvm.png" class="d-none d-md-block" style="width: 100%; max-width: 200px;" alt="">
+        <label class="m-2 d-none d-md-block">Hospital Regional Hermilio Valdizan</label> 
+        <button mat-icon-button class="d-md-none" [matMenuTriggerFor]="segundoMenu" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="example-spacer"></span>
+       
+  
+      <mat-menu #segundoMenu="matMenu" class="example-icon">
+        <button mat-menu-item [routerLink]="['consultacitas']">Citas Disponibles</button>
+        <button mat-menu-item [routerLink]="['citas']">Citas Consulta</button>
+      </mat-menu>
+
+      <button mat-button [matMenuTriggerFor]="segundoMenu">
+        <mat-icon>home</mat-icon>
+            Citas
+      </button>
+      <button mat-button [routerLink]="['login']"> 
+        <mat-icon>login</mat-icon>
+            Login
+      </button>
+      <!-- Puedes añadir más menús aquí si lo deseas -->
+    </mat-toolbar-row>
+</mat-toolbar>
+<ng-content></ng-content>

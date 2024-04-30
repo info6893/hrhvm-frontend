@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Citas Disponibles</h2>
+<mat-dialog-content class="mat-typography">
+  
+    <table class="tablenew m-4">
+        <thead>
+            <tr>
+                <th>Fecha Disponible</th>
+                <th>Nombre Servicio</th>
+                <th>Cupos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data">
+                <td>{{item.Fecha}}</td>
+                <td>{{item.Nombre_Servicios}}</td>
+                <td>{{item.Citas_Libres}}</td>           
+            </tr>
+        </tbody>
+        
+    </table>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close cdkFocusInitial>Cerrar</button>
+
+  </mat-dialog-actions>
