@@ -9,8 +9,10 @@ import { AdminprivateComponent } from './layout/admin/adminprivate/adminprivate.
 import { AuditoriasComponent } from './admin/auditorias/auditorias.component';
 import { logeatedGuard } from './guards/logeated.guard';
 import { authenticatedGuard } from './guards/authenticated.guard';
+//import { HcComponent } from './guest/hc/hc.component';
 
 const routes: Routes = [
+  //{path:'historiaclinica',component:HcComponent},
   {path:'patologiaresultados/:id',component:ResultadosComponent},
   {path:'login',component:LoginComponent,canActivate:[logeatedGuard]},
   {

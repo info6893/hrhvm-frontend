@@ -45,7 +45,7 @@ export const DATE_FORMATS:MatDateFormats={
     ResultadosComponent,
     LoginComponent,
     AuditoriasComponent,
-    AdminprivateComponent,
+    AdminprivateComponent,    
   ],
   imports: [
     BrowserModule,
