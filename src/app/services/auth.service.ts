@@ -40,4 +40,8 @@ export class AuthService {
   logout(){
     localStorage.removeItem(this.llavetoken);
   }
+
+  obtenerToken(){
+    return localStorage.getItem(this.llavetoken);
+  }
 }

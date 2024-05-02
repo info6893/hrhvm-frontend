@@ -1,0 +1,46 @@
+<app-card titulo="Modificar Establecimientos">
+  <form [formGroup]="form" (ngSubmit)="Modificar()">
+    <div class="row">
+
+      <div class="col-sm-12 col-md-4" >
+        <mat-form-field class="w100" appearance="outline">
+          <mat-label>Ingrese Numero de Cuenta</mat-label>
+          <input matInput placeholder="Registre numero de cuenta" formControlName="idAtencion">
+        </mat-form-field>
+      </div>
+
+
+      <div class="col-sm-12 col-md-4" >
+        <mat-form-field class="w100" appearance="outline">
+          <mat-label>Numero Origen</mat-label>
+          <input matInput placeholder="Ingrese numero de referencia" formControlName="NroReferenciaOrigen">
+        </mat-form-field>
+      </div>
+
+      <div class="col-sm-12 col-md-4"> 
+        <mat-label>Establecimientos</mat-label>
+        <ng-select formControlName="IdEstablecimientoOrigen">
+           <ng-option *ngFor="let data of dataEstablecimiento" [value]="data.IdEstablecimiento">
+               {{data.Nombre}}
+           </ng-option>
+        </ng-select>       
+      </div>
+
+      
+
+
+      <div class="col-sm-12 mb-3 mt-3">
+        <button mat-raised-button color="primary" [disabled]="!form.valid" input="submit" extended style="width: 100%;">
+          <mat-icon>arrow_circle_right</mat-icon>
+          Actualizar
+        </button>
+      </div>
+
+
+
+
+
+
+    </div>
+  </form>
+</app-card>

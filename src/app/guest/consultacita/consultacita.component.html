@@ -1,5 +1,5 @@
 <app-card titulo="Consultar Citas">   
-    <form [formGroup]="form" class="container m-2" >
+    <form [formGroup]="form" class="container " >
         <div class="row">
             <div class="col-md-4">
                 <mat-form-field appearance="outline">
@@ -21,8 +21,9 @@
                 </mat-form-field>
             </div>
             <div class="col-md-4">
-                <button mat-raised-button color="primary" (click)="enviarData()">
-                    Buscar
+                <button mat-raised-button color="primary" (click)="enviarData()" extended class="mb-3">
+                    <mat-icon>search</mat-icon>
+                    Actualizar
                 </button>
             </div>
         </div>

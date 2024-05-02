@@ -1,1 +1,50 @@
-<p>auditorias works!</p>
+<app-card titulo="Consultas Auditoria">
+    <form [formGroup]="form" (ngSubmit)="Buscar()">
+        <div class="row">
+            <div class="col-sm-12">
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Ingrese Numero de Cuenta</mat-label>
+                    <input matInput placeholder="Registre numero de cuenta" formControlName="idcuenta">
+                </mat-form-field>
+            </div>
+            <div class="col-sm-12 mb-3">
+                <button mat-raised-button color="primary" [disabled]="!form.valid" input="submit" extended
+                    style="width: 100%;">
+                    <mat-icon>search</mat-icon>
+                    Buscar
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <div class="row" *ngIf="datares && datares.length > 0">
+        <div class="col-sm-12">
+            <table class="table table-bordered tablenew">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Tabla</th>
+                        <th>Accion</th>
+                        <th>Id Empleado</th>
+                        <th>Nombre</th>
+                        <th>idregistro</th>
+                        <th>PC</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of datares">
+                        <td>{{item.FechaHora | date:'dd/MM/yyyy HH:mm:ss' : 'UTC' }}</td>
+                        <td>{{item.Tabla}}</td>
+                        <td>{{item.Accion}}</td>
+                        <td>{{item.IdEmpleado}}</td>
+                        <td>{{item.Empleado.nombresCompletos}}</td>
+                        <td>{{item.IdRegistro}}</td>
+                        <td>{{item.nombrePc}}</td>
+                        <td>{{item.observaciones}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</app-card>

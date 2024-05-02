@@ -1,0 +1,107 @@
+
+  
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-12 col-md-8 offset-md-2 mt-3 d-none">
+            <img src="../../../assets/logominsahrhvm.png" style="width: 100%; max-width: 400px;" alt="">
+        </div>
+        <div class="col-sm-12">
+            <hr>        
+        </div>
+        <div class="col-sm-12 col-md-8 offset-md-2">
+            <div class="row">
+                <div class="col-sm-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb ">
+                            <li class="breadcrumb-item"><a>Inicio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Consultar Cita</li>
+                        </ol>
+                    </nav>
+                </div>            
+                <div class="col-sm-12">
+                    <div class="card">
+                        <h2 class="card-header">Consultar Cita</h2>
+                        <div class="card-body">
+                            <form [formGroup]="form" class="container">
+                            <div class="row">                              
+                                    <div class="col-sm-12 col-md-4" >
+                                        <mat-form-field appearance="outline" class="w100">
+                                            <mat-label>DNI</mat-label>
+                                            <input matInput #input placeholder="Ingrese DNI" formControlName="dni" maxlength="8" minlength="8">
+                                            <mat-hint align="end">{{input.value.length}}/8</mat-hint>
+                                            <mat-icon matSuffix>contact_mail</mat-icon>
+                                            <mat-error *ngIf="form.invalid">{{obtenerErrorCampoNombre('dni')}}</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4">
+                                        <mat-form-field appearance="outline" class="w100">
+                                            <mat-label>Fecha Nacimiento:</mat-label>
+                                            <input matInput [matDatepicker]="picker" formControlName="fechanac">
+                                            <mat-hint>DD/MM/YYYY</mat-hint>
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker startView="multi-year"></mat-datepicker>
+                                            <mat-error *ngIf="form.invalid">{{obtenerErrorCampoNombre('fechanac')}}</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-sm-12 col-md-2 " >
+                                        <button mat-raised-button color="primary" (click)="enviarData()" [disabled]="!form.valid" extended class="mt-3 mb-3 w100">
+                                            <mat-icon>search</mat-icon>
+                                            Buscar
+                                        </button>
+                                    </div>
+                                    <div class="col-sm-12 col-md-2 mt-3 mb-3">                                        
+                                            <mat-checkbox class="example-margin"  (change)="historial($event.checked)" checked="">Historial</mat-checkbox>                                                                                     
+                                    </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+
+
+
+                    <div class="card mt-3">
+                        <table class="tablenew m-4" *ngIf="this.datageneral.length">
+                            <thead>
+                                <tr>
+                                    <th>Cuenta Atención</th>
+                                    <th>Fecha de Atención (Hora)</th>
+                                    <th>Servicio</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of datageneral" [ngClass]="{'activo': item.Estado,'atendido':!item.Estado }" >
+                                    <ng-container *ngIf="verhistorial || item.Estado" class="fade-in">
+                                        <td>{{item.IdCuentaAtencion}}</td>
+                                        <td> {{item.FechaFormateada}} ({{item.HoraIngreso}})</td>                
+                                        <td> {{item.NomServicio}}</td>
+                                        <td>
+                                            <span *ngIf="item.Estado">                        
+                                                <div class="success icon-container">
+                                                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="done_all"></mat-icon>
+                                                    <div class="text-icon"> Pendiente</div> 
+                                                </div>
+                                            </span>
+                                            <span *ngIf="!item.Estado">                        
+                                                <div class="b icon-container">
+                                                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="privacy_tip"></mat-icon>
+                                                    <div class="text-icon">Atendido</div> 
+                                                  </div>
+                                            </span>                 
+                                        </td>
+                                    </ng-container>
+                                    
+                                   
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
