@@ -37,6 +37,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ReportesgeneralComponent } from './guest/reportesgeneral/reportesgeneral.component';
 import { SeguridadinterceptoresService } from './services/seguridadinterceptores.service';
+import { PaginaprincipalComponent } from './admin/paginaprincipal/paginaprincipal.component';
 export const DATE_FORMATS:MatDateFormats={
   parse:{dateInput:'dd/MM/yyyy'},
   display:{
@@ -68,6 +69,7 @@ export const DATE_FORMATS:MatDateFormats={
     NavsidebarpublicComponent,
     NotFoundComponent,
     ReportesgeneralComponent,
+    PaginaprincipalComponent,
   ],
   imports: [
     BrowserModule,

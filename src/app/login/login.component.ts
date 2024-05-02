@@ -42,7 +42,7 @@ export class LoginComponent {
       })
     ).subscribe((data)=>{   
       if(data){
-        this.router.navigate(['/admin/auditoria'])
+        this.router.navigate(['/admin/'])
       } 
     });
   }

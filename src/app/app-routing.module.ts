@@ -16,6 +16,8 @@ import { ReportestvcitasComponent } from './guest/reportestvcitas/reportestvcita
 import { Consultacitas2Component } from './guest/consultacitas2/consultacitas2.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReportesgeneralComponent } from './guest/reportesgeneral/reportesgeneral.component';
+import { PaginaprincipalComponent } from './admin/paginaprincipal/paginaprincipal.component';
+import { administradorguardGuard } from './guards/administradorguard.guard';
 
 const routes: Routes = [
   { path: 'consultacita', component: ReportestvcitasComponent },
@@ -37,9 +39,10 @@ const routes: Routes = [
   {
     path: 'admin', component: AdminprivateComponent, canActivateChild: [authenticatedGuard],
     children: [
-      { path: '', redirectTo: 'auditoria', pathMatch: 'full' },
-      { path: 'auditoria', component: AuditoriasComponent },
-      { path: 'establecimiento', component: EstablecimientoComponent }
+      { path: '', redirectTo: 'principal', pathMatch: 'full' },
+      { path: 'principal', component: PaginaprincipalComponent },
+      { path: 'auditoria', component: AuditoriasComponent, canActivate:[administradorguardGuard]},
+      { path: 'establecimiento', component: EstablecimientoComponent, canActivate:[administradorguardGuard]}
     ]
   },
   { path: '404', component: NotFoundComponent },

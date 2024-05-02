@@ -9,12 +9,10 @@ export const authenticatedGuard: CanActivateFn = (route, state) => {
     return !!localStorage.getItem('tokengalenos');
   }
   if(hasToken()){
-
     const authServices=inject(AuthService)
     const token=localStorage.getItem('tokengalenos')!
     const dataToken=JSON.parse(atob(token.split('.')[1]))
-    const fechaexpiracion = new Date(dataToken.exp*1000);
-   
+    const fechaexpiracion = new Date(dataToken.exp*1000);   
     if(new Date()>=fechaexpiracion){
       authServices.logout()
       return false;

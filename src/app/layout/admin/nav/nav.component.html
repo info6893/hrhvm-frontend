@@ -2,11 +2,11 @@
   <mat-sidenav #sidenav #drawer class="sidenav" fixedInViewport
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar>Menu {{IsAdmin}}</mat-toolbar>
     <mat-nav-list>
-
+  
       <!--Admin-->
-      <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+      <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent" *ngIf="IsAdmin">
         <span>Admin </span>
         <mat-icon matListItemIcon>home_work</mat-icon>
         <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}">expand_more</mat-icon>
