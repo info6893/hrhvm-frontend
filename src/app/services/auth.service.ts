@@ -44,4 +44,26 @@ export class AuthService {
   obtenerToken(){
     return localStorage.getItem(this.llavetoken);
   }
+
+  obetenerRoles(){    
+    const token=localStorage.getItem(this.llavetoken);
+    if (!token){
+      return of(false)
+    }
+    var parts = token?.split('.');
+    if (parts){
+      let decodedPayload = atob(parts[1]);
+      let payloadObject = JSON.parse(decodedPayload);
+      return payloadObject;
+    }  
+    return true;
+  }
+
+  esAdministrador(){
+    const {roles}=this.obetenerRoles()
+    if (roles){
+      return roles.some((objeto:any) => objeto.IdRol === 1165);
+    }      
+    return false;
+  }
 }
